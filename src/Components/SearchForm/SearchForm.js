@@ -8,7 +8,7 @@ const SearchForm = () => {
     const getData = async (value) => {
         try{
         //fetch the data with the keyword from the input
-        fetch(`/api?keyword=${value}`) 
+        fetch(`https://backend-927c.onrender.com/api?keyword=${value}`) 
        .then(response => response.json())
         .then(obj => { //get the data 
             let articleInfo = obj.response.docs;
@@ -20,7 +20,7 @@ const SearchForm = () => {
                 //get the headline and set a link to the details page
                 let headline = articleInfo[i].headline.main;
                 //let link = "http://localhost:3000/details"; 
-                let link = "https://backend-927c.onrender.com";
+                let link = "https://backend-927c.onrender.com/details";
                 //add the rest of the data to session storage for the details page to access
                 sessionStorage.setItem("headline", headline);
                 sessionStorage.setItem("abstract", articleInfo[i].abstract);
