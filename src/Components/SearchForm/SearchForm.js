@@ -1,5 +1,6 @@
 import './SearchForm.css';
 import logo from '../../logo.png';
+import {Link} from 'react-router-dom';
 
 //export default function SearchForm(){
 const SearchForm = () => {
@@ -29,7 +30,7 @@ const SearchForm = () => {
                 sessionStorage.setItem("source", articleInfo[i].source);
                 sessionStorage.setItem("pub_date", articleInfo[i].pub_date);
                 //write the link and headline to the results paragraph & use br tags to make it look nicer
-                document.getElementById("results").innerHTML += "<br/><a href='"+link+"'>" + headline + "</a><br/>";
+                document.getElementById("results").innerHTML += "<br/><Link to='/details'/>" + headline + "</a><br/>";
                 document.getElementById("loaded").innerHTML = "loaded!";
             }
             }
