@@ -1,11 +1,8 @@
 import './SearchForm.css';
 import logo from '../../logo.png';
-import { Link } from 'react-router-dom';
-import {useState} from "react";
 
 //export default function SearchForm(){
 const SearchForm = () => {
-    const [news, setNews] = useState(null);
     let loaded = false;
     //get the data using the value retrieved in the click function
     const getData = async (value) => {
@@ -17,7 +14,6 @@ const SearchForm = () => {
             let articleInfo = obj.response.docs;
             document.getElementById("results").innerHTML = "<br/><b>Results: </b><br/>";
             loaded = true;
-            setNews(articleInfo);
 
             //iterate through the data / different articles
             for(let i = 0; i < articleInfo.length; i++){
@@ -33,7 +29,7 @@ const SearchForm = () => {
                 sessionStorage.setItem("source", articleInfo[i].source);
                 sessionStorage.setItem("pub_date", articleInfo[i].pub_date);
                 //write the link and headline to the results paragraph & use br tags to make it look nicer
-                //document.getElementById("results").innerHTML += "<br/><a href='"+link+"'>" + headline + "</a><br/>";
+                document.getElementById("results").innerHTML += "<br/><a href='"+link+"'>" + headline + "</a><br/>";
                 document.getElementById("loaded").innerHTML = "loaded!";
             }
             }
@@ -66,22 +62,6 @@ const SearchForm = () => {
             <p id="results" role="results"></p>
             <br/> <br/>
             <img src={logo} alt="NYT logo for proper credit"></img>
-            {news && (
-                <div>
-                    {news.map((news, index) => (
-                        <div key={index}>
-                        <Link to={{
-                            pathname: "/details",
-                            headline: news[index].headline.main,
-                            abstract: news[index].abstract,
-                            web_url: news[index].web_url,
-                            lead_paragraph: news[index].lead_paragraph,
-                            source: news[index].source,
-                            pub_date: news[index].pub_date}}>{news[index].headline.main}</Link>
-                        </div>
-                    ))}
-                </div>
-            )}
         </div>
     )
 }
