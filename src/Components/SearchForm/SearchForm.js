@@ -19,7 +19,8 @@ const SearchForm = () => {
             for(let i = 0; i < articleInfo.length; i++){
                 //get the headline and set a link to the details page
                 let headline = articleInfo[i].headline.main;
-                let link = "http://localhost:3000/details";
+                //let link = "http://localhost:3000/details"; 
+                let link = "https://backend-927c.onrender.com";
                 //add the rest of the data to session storage for the details page to access
                 sessionStorage.setItem("headline", headline);
                 sessionStorage.setItem("abstract", articleInfo[i].abstract);
