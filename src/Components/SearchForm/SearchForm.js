@@ -30,7 +30,7 @@ const SearchForm = () => {
                 sessionStorage.setItem("source", articleInfo[i].source);
                 sessionStorage.setItem("pub_date", articleInfo[i].pub_date);
                 //write the link and headline to the results paragraph & use br tags to make it look nicer
-                document.getElementById("results").innerHTML += "<br/><Link to='/details'/>" + headline + "</a><br/>";
+                document.getElementById("results").innerHTML += "<br/><Link to='/details'>" + headline + "</Link><br/>";
                 document.getElementById("loaded").innerHTML = "loaded!";
             }
             }
