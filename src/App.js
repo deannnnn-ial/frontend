@@ -11,7 +11,7 @@ function App() {
   return (
     <Routes>
         <Route path="/" element={<SearchForm/>}/>
-        <Route path="https://frontend-9vuf.onrender.com/details" element={<Details/>}/>
+        <Route path="/details" element={<Details/>}/>
     </Routes>
   );
 }
